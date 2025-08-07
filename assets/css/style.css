@@ -1,0 +1,124 @@
+/* Couleurs principales */
+body {
+  background: linear-gradient(45deg, #000000, #f1c40f, #000000);
+  background-size: 600% 600%;
+  animation: defileFond 12s ease infinite;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Animation de fond défilant noir & jaune */
+@keyframes defileFond {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Logo */
+.logo {
+  max-width: 160px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+/* Carte formulaire (connexion, inscription) */
+.card {
+  border-radius: 10px;
+  background-color: #ffffffee;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Titres */
+h1, h2, h3, h4, h5 {
+  font-weight: bold;
+  color: #222;
+}
+
+/* Boutons */
+.btn-primary {
+  background-color: #f1c40f;
+  border-color: #f1c40f;
+  color: #000;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #d4ac0d;
+  border-color: #d4ac0d;
+}
+
+.btn-success {
+  background-color: #27ae60;
+  border-color: #27ae60;
+}
+
+.btn-success:hover {
+  background-color: #1e8449;
+  border-color: #1e8449;
+}
+
+/* Champs formulaire */
+.form-control, .form-select {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Alertes */
+.alert {
+  font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+  background-color: #000;
+  color: #f1c40f;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Navbar */
+.navbar-custom {
+  background-color: #000;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: #f1c40f;
+  font-weight: bold;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #fff;
+}
+
+/* Tableau */
+.table {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th {
+  background-color: #f1c40f;
+  color: #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  .logo {
+    max-width: 120px;
+  }
+
+  .navbar-toggler {
+    background-color: #f1c40f;
+  }
+}
