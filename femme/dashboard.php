@@ -2,7 +2,7 @@
 require_once 'auth_femme.php';
 require_once '../includes/db.php';
 include '../includes/header.php';
-include '../includes/navbar.php';
+include 'navbar.php';
 
 $nom = $_SESSION['user']['nom'];
 ?>
@@ -24,5 +24,17 @@ $nom = $_SESSION['user']['nom'];
         </div>
     </div>
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <?php include '../includes/footer.php'; ?>

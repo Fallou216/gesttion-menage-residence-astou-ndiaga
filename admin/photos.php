@@ -2,7 +2,7 @@
 require_once 'auth_admin.php';
 require_once '../includes/db.php';
 include '../includes/header.php';
-include '../includes/navbar.php';
+include 'navbar.php';
 
 // Requête pour récupérer les photos avec les infos utiles
 $photos = $pdo->query("
@@ -38,5 +38,8 @@ $photos = $pdo->query("
     </div>
     <?php endif; ?>
 </div>
-
+<br>
+<br>
+<br>
+<br>
 <?php include '../includes/footer.php'; ?>

@@ -9,6 +9,7 @@ CREATE TABLE users (
     role ENUM('admin', 'femme') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+DROP TABLE IF EXISTS chambres;
 
 CREATE TABLE chambres (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -16,8 +17,11 @@ CREATE TABLE chambres (
     etage VARCHAR(20),
     statut_menage ENUM('menage', 'non_menage') DEFAULT 'non_menage',
     statut_disponibilite ENUM('disponible', 'occupee') DEFAULT 'disponible',
+    date_jour DATE DEFAULT NULL,
+    heure TIME DEFAULT NULL,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
 
 CREATE TABLE photos (
     id INT AUTO_INCREMENT PRIMARY KEY,

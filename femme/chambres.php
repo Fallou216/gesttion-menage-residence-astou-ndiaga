@@ -2,7 +2,7 @@
 require_once 'auth_femme.php';
 require_once '../includes/db.php';
 include '../includes/header.php';
-include '../includes/navbar.php';
+include 'navbar.php';
 
 // Mettre à jour le statut d’une chambre
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -64,5 +64,17 @@ $chambres = $pdo->query("SELECT * FROM chambres ORDER BY id DESC")->fetchAll();
         </tbody>
     </table>
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <?php include '../includes/footer.php'; ?>

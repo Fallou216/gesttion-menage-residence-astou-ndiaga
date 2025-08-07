@@ -2,7 +2,7 @@
 require_once 'auth_admin.php';
 require_once '../includes/db.php';
 include '../includes/header.php';
-include '../includes/navbar.php';
+include 'navbar.php';
 
 // Ajouter une femme de ménage
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -67,5 +67,14 @@ $femmes = $pdo->query("SELECT * FROM users WHERE role = 'femme' ORDER BY id DESC
         </tbody>
     </table>
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <?php include '../includes/footer.php'; ?>

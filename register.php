@@ -52,16 +52,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <form method="POST">
-            <input type="text" name="nom" class="form-control mb-3" placeholder="Nom complet" required>
-            <input type="email" name="email" class="form-control mb-3" placeholder="Email" required>
-            <input type="password" name="password" class="form-control mb-3" placeholder="Mot de passe" required>
-            <input type="password" name="confirm" class="form-control mb-3" placeholder="Confirmer" required>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" name="nom" class="form-control" placeholder="Nom complet" required>
+            </div>
 
-            <select name="role" class="form-control mb-3" required>
-                <option value="">-- Sélectionnez votre rôle --</option>
-                <option value="femme">Femme de ménage</option>
-                <option value="admin">Administrateur</option>
-            </select>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input type="email" name="email" class="form-control" placeholder="Email" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                <input type="password" name="password" class="form-control" placeholder="Mot de passe" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                <input type="password" name="confirm" class="form-control" placeholder="Confirmer" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                <select name="role" class="form-control" required>
+                    <option value="">-- Sélectionnez votre rôle --</option>
+                    <option value="femme">Femme de ménage</option>
+                    <option value="admin">Administrateur</option>
+                </select>
+            </div>
 
             <button type="submit" class="btn btn-success w-100">Créer compte</button>
         </form>
@@ -71,5 +89,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </div>
-
 <?php include 'includes/footer.php'; ?>

@@ -2,7 +2,7 @@
 require_once 'auth_admin.php';
 require_once '../includes/db.php';
 include '../includes/header.php';
-include '../includes/navbar.php';
+include 'navbar.php';
 
 // Compter les chambres, femmes, photos
 $totalChambres = $pdo->query("SELECT COUNT(*) FROM chambres")->fetchColumn();
@@ -42,5 +42,16 @@ $totalPhotos = $pdo->query("SELECT COUNT(*) FROM photos")->fetchColumn();
         </div>
     </div>
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <?php include '../includes/footer.php'; ?>

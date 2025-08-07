@@ -2,7 +2,7 @@
 require_once 'auth_femme.php';
 require_once '../includes/db.php';
 include '../includes/header.php';
-include '../includes/navbar.php';
+include 'navbar.php';
 
 $user_id = $_SESSION['user']['id'];
 
@@ -61,5 +61,16 @@ $chambres = $pdo->query("SELECT * FROM chambres ORDER BY numero_chambre ASC")->f
         </div>
     </form>
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <?php include '../includes/footer.php'; ?>
