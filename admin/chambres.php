@@ -34,7 +34,9 @@ $chambres = $pdo->query("SELECT * FROM chambres ORDER BY id DESC")->fetchAll();
             <input type="text" name="etage" class="form-control" placeholder="Étage">
         </div>
         <div class="col-md-4">
-            <button type="submit" class="btn btn-primary w-100">Ajouter</button>
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="fas fa-plus-circle"></i> Ajouter
+            </button>
         </div>
     </form>
 
@@ -46,7 +48,8 @@ $chambres = $pdo->query("SELECT * FROM chambres ORDER BY id DESC")->fetchAll();
                 <th>Étage</th>
                 <th>Statut ménage</th>
                 <th>Disponibilité</th>
-                <th>Action</th>
+                <th>Date/Heure</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -55,19 +58,34 @@ $chambres = $pdo->query("SELECT * FROM chambres ORDER BY id DESC")->fetchAll();
                 <td><?= $ch['id'] ?></td>
                 <td><?= $ch['numero_chambre'] ?></td>
                 <td><?= $ch['etage'] ?></td>
-                <td><?= $ch['statut_menage'] ?></td>
-                <td><?= $ch['statut_disponibilite'] ?></td>
                 <td>
-                    <a href="?delete=<?= $ch['id'] ?>" class="btn btn-sm btn-danger"
-                        onclick="return confirm('Supprimer cette chambre ?')">Supprimer</a>
+                    <span class="badge bg-<?= $ch['statut_menage'] == 'menage' ? 'success' : 'danger' ?>">
+                        <?= ucfirst($ch['statut_menage']) ?>
+                    </span>
+                </td>
+                <td>
+                    <span class="badge bg-<?= $ch['statut_disponibilite'] == 'disponible' ? 'info' : 'secondary' ?>">
+                        <?= ucfirst($ch['statut_disponibilite']) ?>
+                    </span>
+                </td>
+                <td>
+                    <?= $ch['date_jour'] ? date('d/m/Y', strtotime($ch['date_jour'])) : 'N/A' ?><br>
+                    <?= $ch['heure'] ? substr($ch['heure'], 0, 5) : 'N/A' ?>
+                </td>
+                <td>
+                    <a href="edit_chambre.php?id=<?= $ch['id'] ?>" class="btn btn-sm btn-warning" title="Modifier">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="?delete=<?= $ch['id'] ?>" class="btn btn-sm btn-danger" title="Supprimer"
+                        onclick="return confirm('Supprimer cette chambre ?')">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </div>
-<br>
-<br>
 <br>
 <br>
 <br>
