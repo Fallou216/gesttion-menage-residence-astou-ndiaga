@@ -6,10 +6,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Résidence Astou et Ndiaga - Gestion de ménage</title>
+    <title>Résidence Astou & Ndiaga - Gestion de ménage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Favicon (facultatif) -->
+    <!-- Favicon -->
     <link rel="icon" href="/assets/images/favicon.png" type="image/png">
 
     <!-- Bootstrap CSS -->
@@ -18,12 +18,11 @@
     <!-- Font Awesome (icônes) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Ton fichier CSS personnalisé -->
+    <!-- CSS personnalisé -->
     <link rel="stylesheet" href="/assets/css/style.css">
 
-
-    <!-- Script JS principal -->
+    <!-- JS principal -->
     <script defer src="/assets/js/main.js"></script>
 </head>
 
-<body class="bg-black text-white">
+<body>

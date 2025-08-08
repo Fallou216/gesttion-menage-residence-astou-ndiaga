@@ -1,165 +1,220 @@
-/* ----------- FOND ANIMÉ ----------- */
+/* -----------------------------------
+   FOND ANIMÉ
+----------------------------------- */
 body {
-  background: linear-gradient(45deg, #000000, #f1c40f, #000000);
-  background-size: 600% 600%;
-  animation: defileFond 12s ease infinite;
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
-  margin: 0;
-  padding: 0;
+    background: linear-gradient(45deg, #000000, #f1c40f, #000000);
+    background-size: 600% 600%;
+    animation: defileFond 12s ease infinite;
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
 }
 
 @keyframes defileFond {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* ----------- LOGO ----------- */
+/* -----------------------------------
+   LOGO
+----------------------------------- */
 .logo {
-  max-width: 180px;
-  height: auto;
-  display: block;
-  margin: 10px auto;
+    max-width: 220px;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    transition: transform 0.3s ease;
+}
+.logo:hover {
+    transform: scale(1.05);
 }
 
-/* ----------- TITRES ----------- */
+/* -----------------------------------
+   TITRES
+----------------------------------- */
 h1, h2, h3, h4, h5 {
-  font-weight: bold;
-  color: #222;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
-
-/* ----------- FORMULAIRES ----------- */
-.card {
-  border-radius: 10px;
-  background-color: #ffffffee;
-  border: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+h1 {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
 }
-
-.form-control, .form-select {
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-/* ----------- BOUTONS ----------- */
-.btn-primary {
-  background-color: #f1c40f;
-  border-color: #f1c40f;
-  color: #000;
-  font-weight: bold;
-}
-.btn-primary:hover {
-  background-color: #d4ac0d;
-  border-color: #d4ac0d;
-}
-
-.btn-success {
-  background-color: #27ae60;
-  border-color: #27ae60;
-}
-.btn-success:hover {
-  background-color: #1e8449;
-  border-color: #1e8449;
-}
-
-.btn-danger {
-  background-color: #c0392b;
-  border-color: #c0392b;
-}
-.btn-danger:hover {
-  background-color: #a93226;
-  border-color: #a93226;
-}
-
-/* ----------- NAVBAR ----------- */
-.navbar {
-  background-color: #000 !important;
-}
-.navbar-brand,
-.navbar-nav .nav-link {
-  color: #f1c40f !important;
-  font-weight: bold;
-}
-.navbar-nav .nav-link:hover {
-  color: #fff !important;
-}
-.navbar-toggler {
-  background-color: #f1c40f;
-}
-
-/* ----------- MENU HAMBURGER ----------- */
-.offcanvas {
-  background-color: #000;
-}
-.offcanvas a {
-  color: #f1c40f;
-}
-.offcanvas a:hover {
-  color: #fff;
-}
-
-/* ----------- TABLEAUX ----------- */
-.table {
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-}
-.table th {
-  background-color: #f1c40f;
-  color: #000;
-}
-.table td {
-  vertical-align: middle;
-}
-
-/* ----------- ICÔNES ACTIONS ----------- */
-.action-icons i {
-  font-size: 1.1rem;
-  margin-right: 10px;
-  cursor: pointer;
-  color: #000;
-}
-.action-icons i:hover {
-  color: #f1c40f;
-}
-
-/* ----------- ALERTES ----------- */
-.alert {
-  font-size: 0.95rem;
-}
-
-/* ----------- FOOTER ----------- */
-footer {
-  background-color: #000;
-  color: #f1c40f;
-  padding: 15px 0;
-  text-align: center;
-  font-size: 14px;
-}
-
-/* ----------- RESPONSIVE ----------- */
-@media (max-width: 768px) {
-  .card {
-    padding: 1.5rem;
-  }
-  .logo {
-    max-width: 120px;
-  }
-  .navbar-toggler {
-    background-color: #f1c40f;
-  }
-}
-
-body {
-    background-color: #121212;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-.text-gold {
+h2, h3 {
     color: #ffcc66;
 }
 
-.text-white {
-    color: white;
+/* -----------------------------------
+   FORMULAIRES & CARTES
+----------------------------------- */
+.card {
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.form-control, .form-select {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 0.6rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-control:focus, .form-select:focus {
+    border-color: #f1c40f;
+    box-shadow: 0 0 6px rgba(241, 196, 15, 0.5);
+}
+
+/* -----------------------------------
+   BOUTONS
+----------------------------------- */
+.btn {
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #f1c40f;
+    border-color: #f1c40f;
+    color: #000;
+}
+.btn-primary:hover {
+    background-color: #d4ac0d;
+    border-color: #d4ac0d;
+    transform: scale(1.05);
+}
+
+.btn-success {
+    background-color: #27ae60;
+    border-color: #27ae60;
+}
+.btn-success:hover {
+    background-color: #1e8449;
+    border-color: #1e8449;
+    transform: scale(1.05);
+}
+
+.btn-danger {
+    background-color: #c0392b;
+    border-color: #c0392b;
+}
+.btn-danger:hover {
+    background-color: #a93226;
+    border-color: #a93226;
+    transform: scale(1.05);
+}
+
+.btn-outline-light:hover {
+    background-color: #fff;
+    color: #000 !important;
+}
+
+/* -----------------------------------
+   NAVBAR
+----------------------------------- */
+.navbar {
+    background-color: #000 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #f1c40f !important;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+    color: #fff !important;
+}
+.navbar-toggler {
+    background-color: #f1c40f;
+}
+
+/* -----------------------------------
+   MENU HAMBURGER
+----------------------------------- */
+.offcanvas {
+    background-color: #000;
+}
+.offcanvas a {
+    color: #f1c40f;
+    transition: color 0.3s ease;
+}
+.offcanvas a:hover {
+    color: #fff;
+}
+
+/* -----------------------------------
+   TABLEAUX
+----------------------------------- */
+.table {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.table th {
+    background-color: #f1c40f;
+    color: #000;
+}
+.table td {
+    vertical-align: middle;
+}
+
+/* -----------------------------------
+   ICÔNES D'ACTION
+----------------------------------- */
+.action-icons i {
+    font-size: 1.1rem;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #000;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+.action-icons i:hover {
+    color: #f1c40f;
+    transform: scale(1.2);
+}
+
+/* -----------------------------------
+   ALERTES
+----------------------------------- */
+.alert {
+    font-size: 0.95rem;
+    border-radius: 8px;
+}
+
+/* -----------------------------------
+   FOOTER
+----------------------------------- */
+footer {
+    background-color: #000;
+    color: #f1c40f;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.5);
+}
+
+/* -----------------------------------
+   COULEURS RAPIDES
+----------------------------------- */
+.text-gold { color: #ffcc66; }
+.text-white { color: white; }
+
+/* -----------------------------------
+   RESPONSIVE
+----------------------------------- */
+@media (max-width: 768px) {
+    .card { padding: 1.5rem; }
+    .logo { max-width: 120px; }
+    .navbar-toggler { background-color: #f1c40f; }
 }
