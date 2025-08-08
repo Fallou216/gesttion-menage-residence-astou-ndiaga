@@ -25,4 +25,6 @@
     <script defer src="/assets/js/main.js"></script>
 </head>
 
-<body>
+<!-- Ajoute les classes pour le fond noir et texte blanc, le CSS fera le reste -->
+
+<body class="bg-black text-white">

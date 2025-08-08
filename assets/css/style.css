@@ -1,12 +1,12 @@
 /* -----------------------------------
-   FOND ANIMÉ
+   FOND ANIMÉ NOIR & JAUNE
 ----------------------------------- */
 body {
     background: linear-gradient(45deg, #000000, #f1c40f, #000000);
     background-size: 600% 600%;
-    animation: defileFond 12s ease infinite;
+    animation: defileFond 15s ease infinite;
     font-family: 'Segoe UI', sans-serif;
-    color: #fff;
+    color: white;
     margin: 0;
     padding: 0;
 }
@@ -52,9 +52,10 @@ h2, h3 {
 ----------------------------------- */
 .card {
     border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.9);
     border: none;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    color: black;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .card:hover {
@@ -167,6 +168,7 @@ h2, h3 {
 }
 .table td {
     vertical-align: middle;
+    color: #000;
 }
 
 /* -----------------------------------
