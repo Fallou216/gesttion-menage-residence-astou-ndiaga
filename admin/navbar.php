@@ -30,6 +30,12 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link" href="chambres.php">
+                        <i class="fas fa-bed"></i> Gestion Chambres
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="femmes.php">
                         <i class="fas fa-user"></i> Gestion Femmes
                     </a>

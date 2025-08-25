@@ -1,18 +1,20 @@
 /* -----------------------------------
-   FOND ANIMÉ NOIR & JAUNE
+   FOND ANIMÉ NOIR & JAUNE OR
 ----------------------------------- */
 body {
-    background: linear-gradient(45deg, #000000, #f1c40f, #000000);
+    background: linear-gradient(270deg, #000000, #f1c40f, #000000);
     background-size: 600% 600%;
     animation: defileFond 15s ease infinite;
     font-family: 'Segoe UI', sans-serif;
     color: white;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    background-attachment: fixed;
 }
 
 @keyframes defileFond {
-    0% { background-position: 0% 50%; }
+    0% { background-position: 0% 50%; } 
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
@@ -52,7 +54,7 @@ h2, h3 {
 ----------------------------------- */
 .card {
     border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     border: none;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     color: black;

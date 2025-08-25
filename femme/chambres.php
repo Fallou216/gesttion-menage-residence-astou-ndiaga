@@ -87,4 +87,11 @@ $chambres = $pdo->query("SELECT * FROM chambres ORDER BY id DESC")->fetchAll();
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <?php include '../includes/footer.php'; ?>
