@@ -24,8 +24,9 @@ $chambres = $pdo->query("SELECT * FROM chambres ORDER BY id DESC")->fetchAll();
 ?>
 
 <div class="container mt-4">
-    <h2>Gestion des Chambres</h2>
-
+    <h2>
+        <i class="fas fa-bed"></i> Gestion des Chambres
+    </h2>
     <form method="POST" class="row g-3 mb-4">
         <div class="col-md-4">
             <input type="text" name="numero_chambre" class="form-control" placeholder="N° Chambre" required>

@@ -11,7 +11,7 @@ CREATE TABLE users (
 );
 DROP TABLE IF EXISTS chambres;
 
-CREATE TABLE chambres (
+CREATE TABLE IF NOT EXISTS chambres (
     id INT AUTO_INCREMENT PRIMARY KEY,
     numero_chambre VARCHAR(50) NOT NULL UNIQUE,
     etage VARCHAR(20),
@@ -19,6 +19,7 @@ CREATE TABLE chambres (
     statut_disponibilite ENUM('disponible', 'occupee') DEFAULT 'disponible',
     date_jour DATE DEFAULT NULL,
     heure TIME DEFAULT NULL,
+    femme_menage VARCHAR(100) DEFAULT NULL,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 

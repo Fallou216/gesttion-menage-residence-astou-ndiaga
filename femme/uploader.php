@@ -32,8 +32,9 @@ $chambres = $pdo->query("SELECT * FROM chambres ORDER BY numero_chambre ASC")->f
 ?>
 
 <div class="container mt-4">
-    <h2>Envoyer une photo de chambre ménagée</h2>
-
+    <h2>
+        <i class="fas fa-camera"></i> Envoyer une photo de chambre ménagée
+    </h2>
     <?php if (isset($success)): ?>
     <div class="alert alert-success"><?= $success ?></div>
     <?php elseif (isset($error)): ?>
