@@ -32,7 +32,7 @@ if (isset($_SESSION['user'])) {
 
     <!-- Message -->
     <p class="mt-4 text-white animate__animated animate__fadeInUp animate__delay-4s fs-5">
-        Connectez-vous pour gérer les chambres et les photos de manière professionnelle.
+        Connectez-vous pour gérer les chambres.
     </p>
 
     <!-- Bouton de connexion -->
