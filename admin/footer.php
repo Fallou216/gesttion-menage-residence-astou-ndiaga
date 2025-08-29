@@ -5,7 +5,7 @@
 <footer class="footer-animated mt-auto">
     <div class="container text-center py-4">
         <div class="footer-logo mb-2">
-            <img src="assets/images/Logo1.png" alt="Logo" width="60">
+            <img src="../assets/images/Logo1.png" alt="Logo" width="60">
         </div>
         <small class="footer-text">&copy; <?= date('Y') ?> Résidence Astou & Ndiaga — Tous droits réservés.</small>
     </div>

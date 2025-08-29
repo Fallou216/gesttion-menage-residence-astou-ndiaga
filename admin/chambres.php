@@ -186,5 +186,10 @@ AOS.init({
     once: true
 });
 </script>
+<style>
+h2 {
+    text-align: center;
+}
+</style>
 <br><br><br><br><br><br><br><br><br><br>
-<?php include '../includes/footer.php'; ?>
+<?php include 'footer.php'; ?>

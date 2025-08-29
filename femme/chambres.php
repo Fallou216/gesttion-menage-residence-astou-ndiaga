@@ -183,4 +183,4 @@ h2 {
 </style>
 
 <br><br><br><br><br><br><br><br><br><br>
-<?php include '../includes/footer.php'; ?>
+<?php include 'footer.php'; ?>

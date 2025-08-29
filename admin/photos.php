@@ -1,10 +1,8 @@
 <?php
 require_once 'auth_admin.php';
 require_once '../includes/db.php';
-include '../includes/header.php';
-include 'navbar.php';
 
-// Suppression photo
+// Suppression photo avant tout affichage HTML
 if (isset($_GET['delete'])) {
     $id = (int) $_GET['delete'];
 
@@ -16,15 +14,21 @@ if (isset($_GET['delete'])) {
     if ($photo) {
         $filePath = "../uploads/" . $photo['photo_path'];
         if (file_exists($filePath)) {
-            unlink($filePath); // Supprimer physiquement le fichier
+            unlink($filePath); // Supprimer le fichier
         }
         $pdo->prepare("DELETE FROM photos WHERE id = ?")->execute([$id]);
     }
+
+    // Redirection avant tout HTML
     header("Location: photos.php?msg=deleted");
     exit;
 }
 
-// Requête pour récupérer les photos avec les infos utiles
+// Inclure le header et navbar après suppression
+include '../includes/header.php';
+include 'navbar.php';
+
+// Récupérer les photos
 $photos = $pdo->query("
   SELECT photos.*, users.nom AS femme_nom, chambres.numero_chambre
   FROM photos
@@ -56,7 +60,6 @@ $photos = $pdo->query("
         <div class="col-md-3 mb-4">
             <div class="card shadow-lg border-0 h-100 animate__animated animate__zoomIn"
                 style="border-radius: 15px; overflow:hidden;">
-                <!-- Miniature réduite cliquable -->
                 <img src="../uploads/<?= htmlspecialchars($p['photo_path']) ?>"
                     class="card-img-top img-thumbnail zoomable" alt="Photo ménage"
                     style="height: 180px; object-fit: cover; cursor: pointer; transition: transform 0.3s;">
@@ -83,7 +86,7 @@ $photos = $pdo->query("
     <?php endif; ?>
 </div>
 
-<!-- Lightbox (agrandissement image) -->
+<!-- Lightbox -->
 <div id="lightbox" style="
     display:none;
     position:fixed;
@@ -113,7 +116,8 @@ $photos = $pdo->query("
         animation: zoomIn 0.5s ease;
     ">
 </div>
-<!-- Animations CSS -->
+
+<!-- CSS -->
 <style>
 body {
     background: linear-gradient(-45deg, #0d1117, #1a1f25, #2b3139, #0d1117);
@@ -122,7 +126,11 @@ body {
     color: #fff;
 }
 
-
+h2 {
+    text-align: center;
+    color: #ffcc66;
+    font-weight: 700;
+}
 
 .zoomable:hover {
     transform: scale(1.05);
@@ -147,9 +155,23 @@ body {
         transform: scale(1);
     }
 }
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
 </style>
 
-<!-- Script -->
+<!-- JS -->
 <script>
 // Masquer le message après 10 secondes
 setTimeout(() => {
@@ -161,7 +183,7 @@ setTimeout(() => {
     }
 }, 10000);
 
-// Lightbox (zoom image)
+// Lightbox
 document.querySelectorAll('.zoomable').forEach(img => {
     img.addEventListener('click', () => {
         document.getElementById('lightboxImg').src = img.src;
@@ -173,7 +195,6 @@ document.getElementById('closeLightbox').addEventListener('click', () => {
     document.getElementById('lightbox').style.display = 'none';
 });
 
-// Fermer si on clique en dehors de l'image
 document.getElementById('lightbox').addEventListener('click', (e) => {
     if (e.target.id === 'lightbox') {
         document.getElementById('lightbox').style.display = 'none';
@@ -181,5 +202,5 @@ document.getElementById('lightbox').addEventListener('click', (e) => {
 });
 </script>
 
-<br><br><br>
-<?php include '../includes/footer.php'; ?>
+<br><br><br><br><br></br><br>
+<?php include 'footer.php'; ?>
