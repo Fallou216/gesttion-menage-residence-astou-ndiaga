@@ -108,12 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr>
-                <th>Chambre</th>
-                <th>Étage</th>
-                <th>Ménage</th>
-                <th>Disponibilité</th>
-                <th>Date/Heure</th>
-                <th>Action</th>
+                <th><i class="fas fa-hotel"></i> Chambre</th>
+                <th><i class="fas fa-layer-group"></i> Étage</th>
+                <th><i class="fas fa-broom"></i> Ménage</th>
+                <th><i class="fas fa-bed"></i> Disponibilité</th>
+                <th><i class="fas fa-calendar-alt"></i> Date/Heure</th>
+                <th><i class="fas fa-tasks"></i> Action</th>
             </tr>
         </thead>
         <tbody>

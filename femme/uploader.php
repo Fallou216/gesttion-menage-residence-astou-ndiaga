@@ -265,6 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
         deviceMessage.textContent = "Sur mobile : utilisez l'appareil photo ou la galerie";
     } else {
         deviceMessage.textContent = "Sur ordinateur : utilisez la webcam ou importez une image";
+        deviceMessage.style.color = "red";
     }
 
     function handleFileSelect(event) {
@@ -329,7 +330,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
         } else {
             alert(
-                "Votre navigateur ne supporte pas l'accès à la webcam. Veuillez utiliser la fonctionnalité de sélection de fichier.");
+                "Votre navigateur ne supporte pas l'accès à la webcam. Veuillez utiliser la fonctionnalité de sélection de fichier."
+            );
             webcamContainer.style.display = 'none';
         }
     }
@@ -391,35 +393,37 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="col-md-6">
             <label class="form-label"><i class="fas fa-image"></i> Photo (jpeg, png)</label>
 
-            <div class="camera-options">
-                <div class="camera-btn" id="useCamera">
-                    <div class="camera-icon"><i class="fas fa-camera"></i></div>
+            <div class="camera-options d-flex justify-content-between mb-3">
+                <div class="camera-btn text-center" id="useCamera">
+                    <div class="camera-icon"><i class="fas fa-camera fa-2x"></i></div>
                     <div>Prendre une photo</div>
                 </div>
-                <div class="camera-btn" id="useGallery">
-                    <div class="camera-icon"><i class="fas fa-images"></i></div>
+                <div class="camera-btn text-center" id="useGallery">
+                    <div class="camera-icon"><i class="fas fa-images fa-2x"></i></div>
                     <div>Choisir depuis la galerie</div>
                 </div>
             </div>
 
-            <p id="deviceMessage" class="device-message"></p>
+            <p id="deviceMessage" class="device-message text-muted small"></p>
 
-            <!-- Inputs cachés pour chaque option -->
-            <input type="file" id="cameraInput" accept="image/*" capture="camera">
-            <input type="file" id="galleryInput" accept="image/*">
+            <!-- Inputs cachés -->
+            <input type="file" id="cameraInput" accept="image/*" capture="camera" hidden>
+            <input type="file" id="galleryInput" accept="image/*" hidden>
+            <input type="file" name="photo" id="photoInput" class="hidden-input" required hidden>
 
-            <!-- Input principal qui sera soumis avec le formulaire -->
-            <input type="file" name="photo" id="photoInput" class="hidden-input" required>
-
-            <!-- Conteneur pour la webcam (ordinateur) -->
-            <div id="webcamContainer">
-                <video id="webcamVideo" autoplay playsinline></video>
+            <!-- Webcam -->
+            <div id="webcamContainer" class="text-center mb-3" style="display:none;">
+                <video id="webcamVideo" autoplay playsinline class="rounded shadow" style="max-width:100%;"></video>
                 <button type="button" id="captureBtn" class="btn btn-primary mt-2">
                     <i class="fas fa-camera"></i> Capturer la photo
                 </button>
             </div>
 
-            <img id="photoPreview" src="#" alt="Prévisualisation">
+            <!-- Prévisualisation -->
+            <div class="text-center mt-3">
+                <img id="photoPreview" src="#" alt="Prévisualisation" class="img-fluid rounded shadow-lg border"
+                    style="max-width: 100%; height: auto; display:none;">
+            </div>
         </div>
 
         <div class="col-12 text-center">
@@ -427,6 +431,24 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
     </form>
 </div>
+
+<script>
+const photoInput = document.getElementById('photoInput');
+const preview = document.getElementById('photoPreview');
+
+// Afficher la prévisualisation quand une image est choisie
+photoInput.addEventListener('change', function(e) {
+    if (this.files && this.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.style.display = 'block';
+            preview.src = e.target.result;
+        }
+        reader.readAsDataURL(this.files[0]);
+    }
+});
+</script>
+
 
 <br><br><br><br>
 <?php include 'footer.php'; ?>
