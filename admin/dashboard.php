@@ -221,7 +221,8 @@ new Chart(document.getElementById('radarChart'), {
         datasets: [{
             label: 'Ressources',
             data: [<?= $totalChambres ?>, <?= $totalFemmes ?>, <?= $totalPhotos ?>,
-                <?= $totalAdmins ?>],
+                <?= $totalAdmins ?>
+            ],
             backgroundColor: 'rgba(255,193,7,0.2)',
             borderColor: '#ffc107',
             borderWidth: 2,
@@ -245,6 +246,11 @@ new Chart(document.getElementById('radarChart'), {
     }
 });
 </script>
-
+<style>
+h2 {
+    color: #ffcc66;
+    font-weight: 700;
+}
+</style>
 <br><br>
 <?php include '../includes/footer.php'; ?>

@@ -35,41 +35,43 @@ $photos = $pdo->query("
 ?>
 
 <div class="container mt-4">
-    <h2 class="mb-4 text-center"><i class="fas fa-images"></i> Photos des Ménages</h2>
+    <h2 class="mb-4 text-center text-light animate__animated animate__fadeInDown">
+        <i class="fas fa-images text-warning"></i> Photos des Ménages
+    </h2>
 
     <!-- Message de suppression -->
     <?php if (isset($_GET['msg']) && $_GET['msg'] === 'deleted'): ?>
-    <div class="alert alert-success text-center" id="deleteAlert">
+    <div class="alert alert-success text-center shadow-lg animate__animated animate__fadeIn" id="deleteAlert">
         <i class="fas fa-check-circle"></i> Photo supprimée avec succès.
     </div>
     <?php endif; ?>
 
     <?php if (count($photos) === 0): ?>
-    <div class="alert alert-info text-center">
+    <div class="alert alert-info text-center shadow-lg animate__animated animate__fadeInUp">
         <i class="fas fa-info-circle"></i> Aucune photo disponible pour le moment.
     </div>
     <?php else: ?>
     <div class="row">
         <?php foreach ($photos as $p) : ?>
         <div class="col-md-3 mb-4">
-            <div class="card shadow-sm h-100">
+            <div class="card shadow-lg border-0 h-100 animate__animated animate__zoomIn"
+                style="border-radius: 15px; overflow:hidden;">
                 <!-- Miniature réduite cliquable -->
                 <img src="../uploads/<?= htmlspecialchars($p['photo_path']) ?>"
                     class="card-img-top img-thumbnail zoomable" alt="Photo ménage"
-                    style="height: 180px; object-fit: cover; cursor: pointer;">
-
-                <div class="card-body">
+                    style="height: 180px; object-fit: cover; cursor: pointer; transition: transform 0.3s;">
+                <div class="card-body bg-dark text-light">
                     <h6 class="card-title">
-                        <i class="fas fa-bed"></i> Chambre :
-                        <span class="text-primary"><?= htmlspecialchars($p['numero_chambre']) ?></span>
+                        <i class="fas fa-bed text-warning"></i> Chambre :
+                        <span class="text-warning"><?= htmlspecialchars($p['numero_chambre']) ?></span>
                     </h6>
-                    <p class="card-text mb-2">
-                        <i class="fas fa-user"></i> Par :
+                    <p class="card-text mb-2 small">
+                        <i class="fas fa-user text-info"></i> Par :
                         <strong><?= htmlspecialchars($p['femme_nom']) ?></strong><br>
-                        <i class="fas fa-calendar-alt"></i>
+                        <i class="fas fa-calendar-alt text-success"></i>
                         <?= date('d/m/Y H:i', strtotime($p['date_upload'])) ?>
                     </p>
-                    <a href="?delete=<?= $p['id'] ?>" class="btn btn-sm btn-danger w-100"
+                    <a href="?delete=<?= $p['id'] ?>" class="btn btn-sm btn-danger w-100 shadow-sm"
                         onclick="return confirm('Voulez-vous vraiment supprimer cette photo ?');">
                         <i class="fas fa-trash-alt"></i> Supprimer
                     </a>
@@ -88,9 +90,11 @@ $photos = $pdo->query("
     z-index:1050;
     left:0; top:0;
     width:100%; height:100%;
-    background:rgba(0,0,0,0.9);
+    background:rgba(0,0,0,0.95);
     justify-content:center;
     align-items:center;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.5s ease;
 ">
     <span id="closeLightbox" style="
         position:absolute;
@@ -99,14 +103,51 @@ $photos = $pdo->query("
         font-weight:bold;
         color:white;
         cursor:pointer;
+        text-shadow: 0 0 10px black;
     ">&times;</span>
     <img id="lightboxImg" src="" style="
         max-width:90%;
         max-height:90%;
-        border-radius:10px;
-        box-shadow:0 0 15px rgba(255,255,255,0.7);
+        border-radius:15px;
+        box-shadow:0 0 25px rgba(255,255,255,0.8);
+        animation: zoomIn 0.5s ease;
     ">
 </div>
+<!-- Animations CSS -->
+<style>
+body {
+    background: linear-gradient(-45deg, #0d1117, #1a1f25, #2b3139, #0d1117);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color: #fff;
+}
+
+
+
+.zoomable:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+</style>
 
 <!-- Script -->
 <script>

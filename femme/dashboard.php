@@ -175,6 +175,12 @@ new Chart(document.getElementById('repartitionChart'), {
     }
 });
 </script>
+<style>
+h2 {
+    color: #ffcc66;
+    font-weight: 700;
+}
+</style>
 
 <br><br>
 <?php include '../includes/footer.php'; ?>

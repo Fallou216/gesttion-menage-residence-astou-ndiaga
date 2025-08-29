@@ -23,6 +23,85 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $chambres = $pdo->query("SELECT * FROM chambres ORDER BY id DESC")->fetchAll();
 ?>
 
+<!-- Styles d'animation -->
+<style>
+/* Animation fade-in pour tout le container */
+.container {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+/* Animation pour les lignes du tableau */
+.table tbody tr {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInRow 0.6s forwards;
+}
+
+/* Délai pour chaque ligne */
+<?php foreach ($chambres as $index=> $ch) : ?>.table tbody tr:nth-child(<?=$index + 1 ?>) {
+    animation-delay: <?=($index + 1) * 0.1 ?>s;
+}
+
+<?php endforeach;
+?>
+
+/* Animation pour les boutons */
+.btn {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRow {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation hover sur les lignes du tableau */
+.table tbody tr:hover {
+    background-color: rgba(255, 204, 102, 0.1);
+    /* léger survol */
+    transition: background-color 0.3s;
+}
+
+/* Animation sur les selects au focus */
+select.form-select {
+    transition: all 0.3s ease;
+}
+
+select.form-select:focus {
+    transform: scale(1.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+</style>
+
+<!-- Script pour animation des selects -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const selects = document.querySelectorAll('select.form-select');
+    selects.forEach(select => {
+        select.addEventListener('blur', () => {
+            select.style.transform = 'scale(1)';
+        });
+    });
+});
+</script>
+
 <div class="container mt-4">
     <h2><i class="fas fa-door-open"></i> Chambres à Gérer</h2>
 
@@ -81,17 +160,27 @@ $chambres = $pdo->query("SELECT * FROM chambres ORDER BY id DESC")->fetchAll();
         </tbody>
     </table>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<style>
+body {
+    background: linear-gradient(-45deg, #0d1117, #1a1f25, #2b3139, #0d1117);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color: #fff;
+}
+
+body {
+    background: linear-gradient(-45deg, #0d1117, #1a1f25, #2b3139, #0d1117);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color: #fff;
+}
+
+h2 {
+    color: #ffcc66;
+    font-weight: 700;
+    text-align: center;
+}
+</style>
+
+<br><br><br><br><br><br><br><br><br><br>
 <?php include '../includes/footer.php'; ?>

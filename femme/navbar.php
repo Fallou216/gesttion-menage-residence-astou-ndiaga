@@ -3,14 +3,75 @@
 // session_start(); // Décommenter si pas déjà lancé dans index.php ou ailleurs
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-light shadow">
+<style>
+/* Navbar styles */
+.navbar {
+    background-color: #000;
+    /* noir profond */
+    border-bottom: 2px solid #ffcc00;
+    /* ligne or */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand span {
+    color: #ffcc00;
+    /* texte or */
+    font-size: 1.25rem;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover span {
+    transform: scale(1.1);
+}
+
+.nav-link {
+    color: #ffcc00 !important;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link i {
+    margin-right: 6px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+}
+
+.nav-link:hover i {
+    transform: rotate(20deg) scale(1.2);
+    color: #ffc107;
+}
+
+/* Navbar toggler */
+.navbar-toggler {
+    border-color: #ffcc00;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,204,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+}
+
+/* Responsive hover animation */
+@media (max-width: 992px) {
+    .nav-link:hover {
+        color: #ffc107 !important;
+    }
+}
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark shadow">
     <div class="container-fluid">
 
         <!-- Logo + Nom résidence -->
         <a class="navbar-brand d-flex align-items-center" href="/">
-            <img src="../assets/images/Logo1.png" alt="Logo Résidence" width="40" height="40"
-                class="me-2 rounded-circle">
-            <span class="fw-bold text-white">Résidence Astou & Ndiaga</span>
+            <img src="../assets/images/Logo1.png" alt="Logo Résidence" width="45" height="45"
+                class="me-2 rounded-circle border border-warning shadow-sm">
+            <span>Résidence Astou & Ndiaga</span>
         </a>
 
         <!-- Bouton menu mobile -->
@@ -30,16 +91,14 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="chambres.php">
-                        <i class="fa-solid fa-bed me-2"></i>Gestion Chambres
+                        <i class="fa-solid fa-bed"></i> Gestion Chambres
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="uploader.php">
-                        <i class="fa-solid fa-gauge-high"></i> Uploade
+                        <i class="fa-solid fa-upload"></i> Uploader
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="../logout.php">
                         <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
